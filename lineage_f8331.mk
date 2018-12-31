@@ -17,10 +17,14 @@ TARGET_KERNEL_CONFIG := aosp_tone_kagura_defconfig
 # Inherit from those products. Most specific first.
 $(call inherit-product, device/sony/kagura/device.mk)
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-PRODUCT_NAME := aosp_f8331
+# Inherit some common LineageOS stuff.
+$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+
+PRODUCT_NAME := lineage_f8331
 PRODUCT_DEVICE := kagura
-PRODUCT_MODEL := Xperia XZ (AOSP)
+PRODUCT_MODEL := Xperia XZ (LOS)
 PRODUCT_BRAND := Sony
 PRODUCT_MANUFACTURER := Sony
